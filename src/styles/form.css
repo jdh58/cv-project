@@ -1,0 +1,268 @@
+body {
+  background-color: #439dc0;
+  display: flex;
+}
+
+#root {
+  background-image: linear-gradient(#4fb8e2, #1c9acc);
+  width: min(1200px, 90%);
+  color: white;
+  place-self: center;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.525);
+}
+
+#root > form {
+  width: 700px;
+  margin: auto;
+  display: grid;
+  justify-content: center;
+  row-gap: 20px;
+}
+
+form > .title {
+  text-align: center;
+  font-size: 42px;
+  padding-top: 20px;
+  color: black;
+}
+
+form > fieldset {
+  padding: 15px 20px;
+  background-color: #295fcc;
+  border: 4px solid black;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 0px 0.5px white, 0px 0px 0px 0.5px white,
+    0 2px 6px 1px rgba(0, 0, 0, 0.53);
+  display: grid;
+  justify-content: center;
+  width: 700px;
+  row-gap: 10px;
+}
+
+fieldset > legend {
+  margin-bottom: 5px;
+  font-size: 26px;
+  font-weight: 500;
+  text-shadow: 0.8px 0.8px 3px rgba(0, 0, 0, 0.841);
+  float: left;
+  justify-self: center;
+}
+
+fieldset label {
+  text-shadow: 1px 1px 4px black;
+  font-size: 2rem;
+}
+
+fieldset input {
+  /* outline: none; */
+  height: 4rem;
+  width: 250px;
+  border: 2px black solid;
+}
+
+.personalFieldset label {
+  text-shadow: 1px 1px 4px black;
+  font-size: 2rem;
+  width: 100px;
+}
+
+.field {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 25px;
+  justify-self: center;
+}
+
+fieldset input,
+textarea {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  padding-left: 5px;
+  font-family: 'Shin Go Pro', sans-serif;
+  border-radius: 10px;
+}
+
+.fields {
+  display: grid;
+  row-gap: 15px;
+  padding: 0 50px;
+  justify-self: center;
+}
+
+.personalFieldset > label {
+  margin-top: 15px;
+  width: 150px;
+}
+
+#number {
+  width: 175px;
+  margin-left: auto;
+}
+
+#email {
+  width: 212.5px;
+  margin-left: auto;
+}
+
+#title {
+  width: 231.25px;
+  margin-left: auto;
+}
+
+textarea {
+  width: 100%;
+  padding-top: 5px;
+  border: 2px solid black;
+  resize: none;
+}
+
+form > .buttons {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.buttons > button {
+  width: 200px;
+}
+
+.submitForm {
+  background-color: #5cd1ff;
+}
+
+/* Now for the experience fieldset */
+
+.expFieldset,
+.eduFieldset {
+  display: grid;
+  justify-content: center;
+}
+
+.expFieldset .field,
+.eduFieldset .field {
+  gap: 15px;
+}
+
+.expFieldset > section,
+.eduFieldset > section {
+  display: grid;
+  justify-content: center;
+  row-gap: 20px;
+}
+
+.title,
+.uni {
+  display: flex;
+  justify-content: center;
+}
+
+.dates {
+  display: flex;
+  justify-content: center;
+}
+
+.dates > span {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.dates input {
+  width: 150px;
+}
+
+.location {
+  display: flex;
+  justify-content: space-around;
+}
+
+.city input {
+  width: 150px;
+}
+
+.state {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.state select {
+  height: 4rem;
+  font-size: 1.5rem;
+  font-family: 'Shin Go Pro', sans-serif;
+  border-radius: 10px;
+  border: 2px black solid;
+}
+
+.location > .remote {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.remote > input {
+  width: 15px;
+}
+
+.expDescrip {
+  display: flex;
+}
+
+.expDescrip > label {
+  align-self: start;
+  margin-top: 1rem;
+}
+
+.expDescrip > ul {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.expDescrip button {
+  background-color: #5cd1ff;
+  width: 100%;
+}
+
+button {
+  border: 2px solid black;
+  border-radius: 10px;
+  font-family: 'Shin Go Pro', sans-serif;
+  font-size: 2rem;
+  height: 4.5rem;
+  cursor: pointer;
+}
+
+fieldset .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.expFieldset .buttons button {
+  width: 175px;
+}
+
+input:disabled,
+select:disabled {
+  opacity: 50%;
+  background-color: #cacaca;
+}
+/* 
+fieldset .submit {
+  background-color: #6fff85;
+}
+
+fieldset .cancel {
+  background-color: #ff6f6f;
+} */
+
+/* Now for the skills fieldset */
