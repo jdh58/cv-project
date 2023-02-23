@@ -27,7 +27,9 @@ form > .title {
   text-align: center;
   font-size: 42px;
   padding-top: 20px;
-  color: black;
+  /* color: black; */
+  -webkit-text-stroke: 2px black;
+  font-weight: 700;
 }
 
 form > fieldset {
@@ -217,14 +219,22 @@ form > .buttons {
 
 .expDescrip > label {
   align-self: start;
-  margin-top: 1rem;
 }
 
 .expDescrip > ul {
+  align-self: flex-end;
   display: flex;
+  list-style: disc;
   align-items: center;
   flex-direction: column;
   gap: 10px;
+}
+
+.expDescrip li,
+.skillsFieldset li {
+  text-align: center;
+  font-size: 1.8rem;
+  text-shadow: 1px 1px 4px black;
 }
 
 .expDescrip button {
@@ -266,3 +276,53 @@ fieldset .cancel {
 } */
 
 /* Now for the skills fieldset */
+
+.expInfo,
+.eduInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.expInfo .expHead,
+.expDateHead,
+.eduInfo {
+  font-size: 2rem;
+  text-shadow: 1px 1px 4px black;
+  text-align: center;
+}
+
+.expDateHead,
+.eduExtraInfo {
+  margin-top: 8px;
+  font-size: 1.8rem;
+}
+
+.expInfo ul {
+  list-style: disc;
+  display: block;
+  margin-top: 10px;
+}
+
+.skillsFieldset li {
+  font-size: 1.8rem;
+}
+
+.skillsFieldset input {
+  margin: auto;
+}
+
+.skillsFieldset button {
+  width: 200px;
+  margin: auto;
+}
+
+.expInfo hr,
+.eduInfo hr {
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.eduUni {
+  margin-top: 5px;
+}

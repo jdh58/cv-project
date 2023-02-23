@@ -6,15 +6,18 @@ class EducationInput extends Component {
     super(props);
 
     this.isRemote = this.isRemote.bind(this);
+    this.writeEdu = this.writeEdu.bind(this);
   }
 
   isRemote(e) {
+    let checkbox = document.querySelector('#eduRemoteCheck');
+
     let locationInputs = [
-      document.querySelector('.eduFieldset #city'),
+      document.querySelector('.eduFieldset #eduCity'),
       document.querySelector('.eduFieldset #eduState'),
     ];
 
-    if (e.target.checked) {
+    if (checkbox.checked) {
       locationInputs.forEach((input) => {
         input.disabled = true;
       });
@@ -23,6 +26,30 @@ class EducationInput extends Component {
         input.disabled = false;
       });
     }
+  }
+
+  writeEdu(e) {
+    e.preventDefault();
+
+    this.props.newEducation();
+
+    // Now wipe the edoucation field for the next entry
+    let eduInputs = [
+      document.querySelector('#degreeTitle'),
+      document.querySelector('#uniName'),
+      document.querySelector('#expFrom'),
+      document.querySelector('#expTo'),
+      document.querySelector('#expCity'),
+      document.querySelector('#expState'),
+    ];
+
+    eduInputs.forEach((elem) => {
+      elem.value = '';
+    });
+
+    // Now set the checkBox to unchecked and run isRemote
+    document.querySelector('#eduRemoteCheck').checked = false;
+    this.isRemote();
   }
 
   render() {
@@ -70,17 +97,18 @@ class EducationInput extends Component {
           <span className="remote">
             <input
               type="checkbox"
-              name="remoteCheck"
-              id="remoteCheck"
+              name="eduRemoteCheck"
+              id="eduRemoteCheck"
               onChange={this.isRemote}
             />
-            <label htmlFor="remoteCheck">Remote?</label>
+            <label htmlFor="eduRemoteCheck">Remote?</label>
           </span>
         </div>
 
         <div className="buttons">
-          <button className="submit">Add Education</button>
-          <button className="cancel">Cancel</button>
+          <button className="submit" onClick={this.writeEdu}>
+            Add Education
+          </button>
         </div>
       </section>
     );

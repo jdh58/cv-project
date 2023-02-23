@@ -14,9 +14,11 @@ class EducationFieldset extends Component {
       return (
         <span className="eduInfo">
           <h3 className="eduHead">{edu.degree}</h3>
+          <h3 className="eduUni">{edu.uni}</h3>
           <p className="eduExtraInfo">
             {edu.location} | {edu.from} - {edu.to}
           </p>
+          <hr />
         </span>
       );
     });
@@ -26,8 +28,8 @@ class EducationFieldset extends Component {
     return (
       <fieldset className="eduFieldset">
         <legend>{this.props.title}</legend>
-        {this.renderEducation}
-        <EducationInput />
+        <div> {this.renderEducation()}</div>
+        <EducationInput newEducation={this.props.newEducation} />
       </fieldset>
     );
   }

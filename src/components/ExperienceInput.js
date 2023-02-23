@@ -5,17 +5,25 @@ class ExperienceInput extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      descrips: [],
+    };
+
     this.isRemote = this.isRemote.bind(this);
     this.writeJob = this.writeJob.bind(this);
+    this.addDescrip = this.addDescrip.bind(this);
+    this.renderDescrip = this.renderDescrip.bind(this);
   }
 
-  isRemote(e) {
+  isRemote() {
+    let checkbox = document.querySelector('#expRemoteCheck');
+
     let locationInputs = [
       document.querySelector('#expCity'),
       document.querySelector('#expState'),
     ];
 
-    if (e.target.checked) {
+    if (checkbox.checked) {
       locationInputs.forEach((input) => {
         input.disabled = true;
       });
@@ -31,6 +39,50 @@ class ExperienceInput extends Component {
 
     // This writes our job to the state of the form
     this.props.newExperience();
+
+    // All this below clears the work form for the next entry
+    let expFormElements = [
+      document.querySelector('#jobTitle'),
+      document.querySelector('#expFrom'),
+      document.querySelector('#expTo'),
+      document.querySelector('#expCity'),
+      document.querySelector('#expState'),
+      document.querySelector('#jobDescrip'),
+    ];
+
+    // Disable the checkmark and trigger the event
+    if (document.querySelector('#expRemoteCheck').checked) {
+      document.querySelector('#expRemoteCheck').checked = false;
+      this.isRemote();
+    }
+
+    expFormElements.forEach((elem) => {
+      elem.value = '';
+    });
+
+    // Now clear the job description list
+    document.querySelectorAll('.descripList > li').forEach((elem) => {
+      elem.remove();
+    });
+  }
+
+  addDescrip(e) {
+    e.preventDefault();
+
+    let currentNewJob = document.querySelector('#jobDescrip');
+    this.setState({
+      descrips: [...this.state.descrips, <li>{currentNewJob.value}</li>],
+    });
+    currentNewJob.value = '';
+  }
+
+  renderDescrip() {
+    let descripList = [];
+    this.state.descrips.forEach((elem) => {
+      descripList.push(elem);
+    });
+
+    return descripList;
   }
 
   render() {
@@ -60,7 +112,7 @@ class ExperienceInput extends Component {
         <div className="field location">
           <span className="field city">
             <label htmlFor="expCity">City:</label>
-            <input type="text" id="expCity" />
+            <input type="text" name="expCity" id="expCity" />
           </span>
           <span className="state">
             <label htmlFor="expState">State:</label>
@@ -69,8 +121,8 @@ class ExperienceInput extends Component {
           <span className="remote">
             <input
               type="checkbox"
-              name="remoteCheck"
-              id="remoteCheck"
+              name="expRemoteCheck"
+              id="expRemoteCheck"
               onChange={this.isRemote}
             />
             <label htmlFor="remoteCheck">Remote?</label>
@@ -80,13 +132,16 @@ class ExperienceInput extends Component {
         <div className="field expDescrip">
           <label htmlFor="jobDescrip">Job Description:</label>
           <ul className="descripList">
+            {this.renderDescrip()}
             <input
               type="text"
               name="jobDescrip"
               id="jobDescrip"
               placeholder="Managed $3.1M project..."
             />
-            <button className="addNewDescrip">+ Add</button>
+            <button className="addNewDescrip" onClick={this.addDescrip}>
+              + Add
+            </button>
           </ul>
         </div>
 
@@ -94,7 +149,6 @@ class ExperienceInput extends Component {
           <button className="submit" onClick={this.writeJob}>
             Add Job
           </button>
-          <button className="cancel">Cancel</button>
         </div>
       </section>
     );

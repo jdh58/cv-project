@@ -5,10 +5,6 @@ class ExperienceFieldset extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      addNew: false,
-    };
-
     this.renderWorkExp = this.renderWorkExp.bind(this);
   }
 
@@ -19,13 +15,12 @@ class ExperienceFieldset extends Component {
         return (
           <span className="expInfo">
             <h3 className="expHead">
-              {exp.title} | {exp.location} | {exp.from} - {exp.to}
+              {exp.title} | {exp.location.city}, {exp.location.state}
             </h3>
-            <ul className="expBullets">
-              {exp.bullets.map((bullet) => {
-                return <li>{bullet}</li>;
-              })}
-            </ul>
+            <p className="expDateHead">
+              {exp.from} - {exp.to}
+            </p>
+            <hr />
           </span>
         );
       });
@@ -36,7 +31,7 @@ class ExperienceFieldset extends Component {
     return (
       <fieldset className="expFieldset">
         <legend>{this.props.title}</legend>
-        {this.renderWorkExp}
+        <div className="pastWorks">{this.renderWorkExp()}</div>
         <ExperienceInput newExperience={this.props.newExperience} />
       </fieldset>
     );

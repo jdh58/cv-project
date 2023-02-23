@@ -161,7 +161,7 @@ table {
 @font-face {
   font-family: 'Shin Go Pro';
   font-weight: 600;
-  src: url(../fonts/AOTFShinGoProHeavy.otf);
+  src: url(../fonts/AOTFShinGoProDeBold.otf);
 }
 @font-face {
   font-family: 'Shin Go Pro';
@@ -171,7 +171,7 @@ table {
 @font-face {
   font-family: 'Shin Go Pro';
   font-weight: 800;
-  src: url(../fonts/AOTFShinGoProDeBold.otf);
+  src: url(../fonts/AOTFShinGoProHeavy.otf);
 }
 
 :root {
