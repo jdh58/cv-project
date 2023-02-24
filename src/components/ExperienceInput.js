@@ -87,7 +87,7 @@ class ExperienceInput extends Component {
 
   render() {
     return (
-      <section>
+      <section className={'' | this.props.expClass}>
         <div className="field title">
           <label htmlFor="jobTitle">Job Title:</label>
           <input
@@ -95,28 +95,47 @@ class ExperienceInput extends Component {
             name="jobTitle"
             id="jobTitle"
             placeholder="Senior Project Manager"
+            defaultValue={'' | this.props.jobTitle}
           />
         </div>
 
         <div className="field dates">
           <span>
             <label htmlFor="expFrom">From:</label>
-            <input type="date" name="expFrom" id="expFrom" />
+            <input
+              type="date"
+              name="expFrom"
+              id="expFrom"
+              defaultValue={'' | this.props.from}
+            />
           </span>
           <span>
             <label htmlFor="expTo">To:</label>
-            <input type="date" name="expTo" id="expTo" />
+            <input
+              type="date"
+              name="expTo"
+              id="expTo"
+              defaultValue={'' | this.props.to}
+            />
           </span>
         </div>
 
         <div className="field location">
           <span className="field city">
             <label htmlFor="expCity">City:</label>
-            <input type="text" name="expCity" id="expCity" />
+            <input
+              type="text"
+              name="expCity"
+              id="expCity"
+              defaultValue={'' || this.props.location.city}
+            />
           </span>
           <span className="state">
             <label htmlFor="expState">State:</label>
-            <StateInput id="expState" />
+            <StateInput
+              id="expState"
+              defaultValue={'' | this.props.location.state}
+            />
           </span>
           <span className="remote">
             <input

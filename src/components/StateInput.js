@@ -3,7 +3,11 @@ import React, { Component } from 'react';
 class StateInput extends Component {
   render() {
     return (
-      <select name={this.props.id} id={this.props.id}>
+      <select
+        name={this.props.id}
+        id={this.props.id}
+        defaultValue={this.props.defaultValue}
+      >
         <option value=""></option>
         <option value="AL">AL</option>
         <option value="AK">AK</option>
