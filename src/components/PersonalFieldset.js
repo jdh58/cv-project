@@ -12,12 +12,7 @@ class PersonalFieldset extends Component {
     if (this.props.inputInfo !== undefined) {
       return this.props.inputInfo.map((input) => {
         return (
-          <BasicInput
-            id={input[0]}
-            type={input[1]}
-            pattern={input[2]}
-            placeholder={input[3]}
-          />
+          <BasicInput id={input[0]} type={input[1]} placeholder={input[2]} />
         );
       });
     }

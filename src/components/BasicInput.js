@@ -9,7 +9,7 @@ class BasicInput extends Component {
         <input
           type={this.props.type}
           id={this.props.id}
-          pattern={this.props.pattern}
+          name={this.props.id}
           placeholder={this.props.placeholder}
         />
       </div>

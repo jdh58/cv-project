@@ -178,3 +178,9 @@ table {
   font-family: 'Shin Go Pro', sans-serif;
   font-size: 10px;
 }
+
+.app {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}

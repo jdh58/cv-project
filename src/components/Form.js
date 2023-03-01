@@ -10,6 +10,7 @@ class Form extends Component {
     super(props);
 
     this.state = {
+      personal: {},
       experiences: [],
       education: [],
       skills: [],
@@ -18,6 +19,29 @@ class Form extends Component {
     this.newExperience = this.newExperience.bind(this);
     this.newEducation = this.newEducation.bind(this);
     this.newSkill = this.newSkill.bind(this);
+    this.submitForm = this.submitForm.bind(this);
+  }
+
+  submitForm(e) {
+    e.preventDefault();
+
+    // First, hide the form
+    let form = document.querySelector('form');
+    form.classList.add('dead');
+
+    // Now, update the state to represent the submitted values
+    this.setState({
+      personal: {
+        name: form.elements.name.value,
+        title: form.elements.title.value,
+        number: form.elements.number.value,
+        email: form.elements.email.value,
+        website: form.elements.website.value,
+      },
+    });
+
+    // Fill the CV
+    this.props.fillCV(this.state);
   }
 
   newExperience() {
@@ -68,7 +92,7 @@ class Form extends Component {
           from: form.elements.eduFrom.value,
           to: form.elements.eduTo.value,
           location: (() => {
-            if (form.elements.eduRemoteCheck) {
+            if (form.elements.eduRemoteCheck.checked) {
               return 'Remote';
             } else {
               return `${form.elements.eduCity.value}, ${form.elements.eduState.value}`;
@@ -97,11 +121,11 @@ class Form extends Component {
         <PersonalFieldset
           title="Personal Info"
           inputInfo={[
-            ['name', 'text', '[a-zA-Z0-9]+', 'Charles Johnson'],
-            ['number', 'number', '', '(360) 555-1234'],
-            ['email', 'email', '', 'abc123@example.com'],
-            ['title', 'text', '', 'UI/UX Designer'],
-            ['website', 'text', '', 'charlesjohnson.com'],
+            ['name', 'text', 'Charles Johnson'],
+            ['title', 'text', 'UI/UX Designer'],
+            ['number', 'number', '(360) 555-1234'],
+            ['email', 'email', 'abc123@example.com'],
+            ['website', 'text', 'charlesjohnson.com'],
           ]}
         />
         <ExperienceFieldset
@@ -116,7 +140,9 @@ class Form extends Component {
         />
         <SkillsFieldset skills={this.state.skills} newSkill={this.newSkill} />
         <span className="buttons">
-          <button className="submitForm">Generate CV</button>
+          <button className="submitForm" onClick={this.submitForm}>
+            Generate CV
+          </button>
           <button className="resetForm">Reset</button>
         </span>
       </form>
