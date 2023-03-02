@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/cv-project/static/css/main.4a68dcc6.css",
+    "main.js": "/cv-project/static/js/main.70ffba48.js",
+    "static/media/AOTFShinGoProHeavy.otf": "/cv-project/static/media/AOTFShinGoProHeavy.8edf57285113232079fe.otf",
+    "static/media/AOTFShinGoProBold.otf": "/cv-project/static/media/AOTFShinGoProBold.18431051c12386968e00.otf",
+    "static/media/AOTFShinGoProDeBold.otf": "/cv-project/static/media/AOTFShinGoProDeBold.7030f5d34a6681251b2c.otf",
+    "static/media/AOTFShinGoProMedium.otf": "/cv-project/static/media/AOTFShinGoProMedium.9db8f2ee18f217ad3f3c.otf",
+    "static/media/AOTFShinGoProRegular.otf": "/cv-project/static/media/AOTFShinGoProRegular.2889eb0857c6db93fa50.otf",
+    "static/media/AOTFShinGoProExLight.otf": "/cv-project/static/media/AOTFShinGoProExLight.e4ca8ebc899a8b9f2ce1.otf",
+    "static/media/AOTFShinGoProLight.otf": "/cv-project/static/media/AOTFShinGoProLight.ada66d939fab5d8dbd61.otf",
+    "index.html": "/cv-project/index.html",
+    "static/media/arrow_back_FILL0_wght400_GRAD0_opsz48.svg": "/cv-project/static/media/arrow_back_FILL0_wght400_GRAD0_opsz48.29fa7ae3716720eddbde78ad0f53ed62.svg",
+    "main.4a68dcc6.css.map": "/cv-project/static/css/main.4a68dcc6.css.map",
+    "main.70ffba48.js.map": "/cv-project/static/js/main.70ffba48.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4a68dcc6.css",
+    "static/js/main.70ffba48.js"
+  ]
+}
