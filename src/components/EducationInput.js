@@ -37,10 +37,10 @@ class EducationInput extends Component {
     let eduInputs = [
       document.querySelector('#degreeTitle'),
       document.querySelector('#uniName'),
-      document.querySelector('#expFrom'),
-      document.querySelector('#expTo'),
-      document.querySelector('#expCity'),
-      document.querySelector('#expState'),
+      document.querySelector('#eduFrom'),
+      document.querySelector('#eduTo'),
+      document.querySelector('#eduCity'),
+      document.querySelector('#eduState'),
     ];
 
     eduInputs.forEach((elem) => {

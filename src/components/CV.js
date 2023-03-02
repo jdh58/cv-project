@@ -2,26 +2,84 @@ import React, { Component } from 'react';
 import '../styles/cv.css';
 
 class CV extends Component {
+  constructor(props) {
+    super(props);
+
+    this.fillJobs = this.fillJobs.bind(this);
+    this.fillEdu = this.fillEdu.bind(this);
+    this.fillSkills = this.fillSkills.bind(this);
+  }
+
+  fillJobs() {
+    return this.props.experiences.map((job) => {
+      let descrips = job.jobDescrip.map((descrip) => <li>{descrip}</li>);
+
+      return (
+        <div className="job">
+          <span className="first">
+            <p className="jobDat">
+              {job.from} - {job.to}
+            </p>
+          </span>
+          <span className="second">
+            <h3 className="jobTit">{job.title}</h3>
+          </span>
+          <span className="third">
+            <p className="location">
+              {job.location.city}, {job.location.state}
+            </p>
+          </span>
+          <span className="fourth">
+            <ul className="jobDescp">{descrips}</ul>
+          </span>
+        </div>
+      );
+    });
+  }
+
+  fillEdu() {
+    return this.props.education.map((edu) => {
+      return (
+        <div className="edu">
+          <p className="date">
+            {edu.from} - {edu.to}
+          </p>
+          <h3 className="degree">{edu.degree}</h3>
+          <span className="second">
+            <p className="uni">{edu.uni}</p>|
+            <p className="location">{edu.location}</p>
+          </span>
+        </div>
+      );
+    });
+  }
+
+  fillSkills() {
+    return this.props.skills.map((skill) => {
+      return <li>{skill}</li>;
+    });
+  }
+
   render() {
     return (
-      <div className="cv">
+      <div className={`cv ${this.props.display}`}>
         <div className="top">
           <span className="header">
-            <h1>Charles Johnson</h1>
-            <p>UI/UX Designer</p>
+            <h1>{this.props.personal.name}</h1>
+            <p>{this.props.personal.title}</p>
           </span>
           <div className="personalInfo">
             <span className="infoblock">
               <p className="question">Phone:</p>
-              <p className="answer">(360)-555-2123</p>
+              <p className="answer">{this.props.personal.number}</p>
             </span>
             <span className="infoblock">
               <p className="question">Email:</p>
-              <p className="answer">abc123@example.com</p>
+              <p className="answer">{this.props.personal.email}</p>
             </span>
             <span className="infoblock">
               <p className="question">Website:</p>
-              <p className="answer">charlesjohnson.com</p>
+              <p className="answer">{this.props.personal.website}</p>
             </span>
           </div>
           <div className="image"></div>
@@ -29,105 +87,26 @@ class CV extends Component {
 
         <div className="profile">
           <h3>Career Profile:</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni dicta
-            id quidem quae delectus, ea deserunt rem consequuntur nesciunt,
-            doloribus veritatis autem debitis ex, possimus impedit facere atque
-            qui minus.
-          </p>
+          <p>{this.props.personal.profile}</p>
         </div>
 
         <span className="subheader">
           <img src="" alt="" />
           <h2>Experience</h2>
         </span>
-        <div className="experience">
-          <div className="job">
-            <span className="first">
-              <p className="jobDat">2013 - 2020</p>
-            </span>
-            <span className="second">
-              <h3 className="jobTit">Senior PR Specialist</h3>
-            </span>
-            <span className="third">
-              <p className="location">London, England</p>
-            </span>
-            <span className="fourth">
-              <ul className="jobDescp">
-                <li>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </li>
-                <li>
-                  Temporibus esse odit commodi dolores enim natus voluptate.
-                </li>
-                <li>
-                  Repellat voluptate non alias officiis veritatis animi dolor.
-                </li>
-                <li>Nobis totam repellendus itaque quas.</li>
-              </ul>
-            </span>
-          </div>
-
-          <div className="job">
-            <span className="first">
-              <p className="jobDat">2013 - 2020</p>
-            </span>
-            <span className="second">
-              <h3 className="jobTit">Senior PR Specialist</h3>
-            </span>
-            <span className="third">
-              <p className="location">London, England</p>
-            </span>
-            <span className="fourth">
-              <ul className="jobDescp">
-                <li>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </li>
-                <li>
-                  Temporibus esse odit commodi dolores enim natus voluptate.
-                </li>
-                <li>
-                  Repellat voluptate non alias officiis veritatis animi dolor.
-                </li>
-                <li>Nobis totam repellendus itaque quas.</li>
-              </ul>
-            </span>
-          </div>
-        </div>
+        <div className="experience">{this.fillJobs()}</div>
 
         <span className="subheader">
           <img src="" alt="" />
           <h2>Education</h2>
         </span>
-        <div className="education">
-          <div className="edu">
-            <p className="date">2020 - 2024</p>
-            <h3 className="degree">Bachelor of Science in Biology</h3>
-            <span className="second">
-              <p className="uni">Michigan State University</p>
-              <p className="location">Guangdong, China</p>
-            </span>
-          </div>
-          <div className="edu">
-            <p className="date">2018 - 2020</p>
-            <h3 className="degree">Associate of Science in Poopy</h3>
-            <span className="second">
-              <p className="uni">Michigan State University</p>
-              <p className="location">Guangdong, China</p>
-            </span>
-          </div>
-        </div>
+        <div className="education">{this.fillEdu()}</div>
 
         <span className="subheader">
           <img src="" alt="" />
           <h2>Skills</h2>
         </span>
-        <ul className="skills">
-          <li>Can eat poo</li>
-          <li>Large fan of chocolate ponies</li>
-          <li>Candy man came to town yesterday</li>
-          <li>Large lover of burgers</li>
-        </ul>
+        <ul className="skills">{this.fillSkills()}</ul>
       </div>
     );
   }

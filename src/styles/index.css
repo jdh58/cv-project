@@ -179,8 +179,26 @@ table {
   font-size: 10px;
 }
 
+#root {
+  position: relative;
+}
+
 .app {
-  height: 100vh;
-  display: flex;
-  align-items: center;
+  position: static;
+  height: 100%;
+}
+
+.back.dead {
+  display: none;
+}
+
+.back {
+  display: block;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.back:hover {
+  cursor: pointer;
 }

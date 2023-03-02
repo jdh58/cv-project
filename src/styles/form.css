@@ -1,6 +1,5 @@
 body {
   background-color: #439dc0;
-  display: flex;
 }
 
 #root {
@@ -21,6 +20,7 @@ body {
 
 .app {
   margin: auto;
+  height: 100%;
 }
 
 #root form {
